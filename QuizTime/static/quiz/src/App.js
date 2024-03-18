@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { invoke } from '@forge/bridge';
+import AnswerField from './AnswerField';
 
 function App() {
     const [data, setData] = useState(null);
@@ -11,6 +12,7 @@ function App() {
     return (
         <div>
             {data ? data : 'Loading...'}
+            <AnswerField />
         </div>
     );
 }

@@ -1,0 +1,36 @@
+.btn {
+    margin: 25px;
+    display: inline-block;
+    height: 180px;
+    width: 180px;
+    border: 5px solid rgb(63, 63, 63);
+    border-radius: 20%;
+
+    text-align: center;
+    line-height: 180px;
+    color: white;
+}
+
+.red-box {
+    background-color: rgb(170, 87, 87);
+}
+
+.blue-box {
+    background-color: rgb(71, 71, 137);
+}
+
+.yellow-box {
+    background-color: rgb(177, 177, 84);
+}
+
+.green-box {
+    background-color: rgb(64, 132, 64);
+}
+
+.btn-container {
+    border: 2px solid black;
+    margin: 25px;
+    padding: 25px;
+    height: 500px;
+    width: 500px;
+}
