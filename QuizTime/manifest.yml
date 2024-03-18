@@ -1,0 +1,15 @@
+modules:
+  jira:projectPage:
+    - key: quiztime-hello-world-project-page
+      resource: main
+      resolver:
+        function: resolver
+      title: QuizTime
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  id: ari:cloud:ecosystem::app/3b2b1263-ab8b-4398-a3ae-3e8c97b07c01
