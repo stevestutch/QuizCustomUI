@@ -14,7 +14,15 @@ function AnswerField(props) {
 
     function handleOnClick(event) {
         let selectedAnswer = event.target.textContent;
-        props.checkAnswer(selectedAnswer);
+
+        if (selectedAnswer === props.currentQuestionAnswer) {
+            setElementColor(event.target.style.backgroundColor = "rgb(71, 71, 137)");
+            props.countScoreUp();
+            props.askQuestion();
+        } else {
+            setElementColor(event.target.style.backgroundColor = "rgb(71, 71, 137)");
+            props.gameOver();
+        }
     }
 
     return (

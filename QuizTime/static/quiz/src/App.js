@@ -7,6 +7,7 @@ import questions from './Questions';
 function App() {
     const [data, setData] = useState(null);
     const [question, setQuestion] = useState(null);
+    const [score, setScore] = useState(0);
 
     useEffect(() => {
         invoke('getText', { example: 'my-invoke-variable' }).then(setData);
@@ -18,24 +19,31 @@ function App() {
         }
     }, [data]);
 
+    function countScoreUp() {
+        setScore(score + 1);
+    }
+
     function askQuestion() {
         let randomNumber = Math.floor(Math.random() * questions.length);
         setQuestion(questions[randomNumber])
     }
 
-    function checkAnswer(givenAnswer) {
-        givenAnswer === question.correctAnswer ? console.log("correct") : console.log("incorrect")
+    function gameOver() {
+        console.log("Game Over!");
+        setScore(0);
     }
 
     return (
         <div>
-            {data ? data : 'Loading...'}
+            <h1>Score: {score}</h1>
             {question ? (
                 <div>
                     <QuestionField question={question.question} />
-                    <AnswerField
-                        possibleAnswers={question.answers}
-                        checkAnswer={checkAnswer} />
+                    <AnswerField possibleAnswers={question.answers}
+                        currentQuestionAnswer={question.correctAnswer}
+                        askQuestion={askQuestion}
+                        countScoreUp={countScoreUp}
+                        gameOver={gameOver} />
                 </div>
             ) : null}
 
