@@ -8,16 +8,12 @@ function App() {
     const [data, setData] = useState(null);
     const [question, setQuestion] = useState(null);
     const [score, setScore] = useState(0);
+    const [isGameOver, setGameOver] = useState(false);
+    const [highscore, setHighscore] = useState(0);
 
     useEffect(() => {
         invoke('getText', { example: 'my-invoke-variable' }).then(setData);
     }, []);
-
-    useEffect(() => {
-        if (data) {
-            askQuestion();
-        }
-    }, [data]);
 
     function countScoreUp() {
         setScore(score + 1);
@@ -29,21 +25,35 @@ function App() {
     }
 
     function gameOver() {
-        console.log("Game Over!");
+        score > highscore ? setHighscore(score) : null;
         setScore(0);
+        setGameOver(true);
     }
 
     return (
         <div>
-            <h1>Score: {score}</h1>
+            <div type="button" onClick={askQuestion} className="btn-start">Start Game</div>
             {question ? (
                 <div>
-                    <QuestionField question={question.question} />
-                    <AnswerField possibleAnswers={question.answers}
-                        currentQuestionAnswer={question.correctAnswer}
-                        askQuestion={askQuestion}
-                        countScoreUp={countScoreUp}
-                        gameOver={gameOver} />
+                    {!isGameOver ? (
+                        <div>
+                            <h1>Score: {score}</h1>
+                            <QuestionField question={question.question} />
+                            <AnswerField possibleAnswers={question.answers}
+                                currentQuestionAnswer={question.correctAnswer}
+                                askQuestion={askQuestion}
+                                countScoreUp={countScoreUp}
+                                gameOver={gameOver} />
+                        </div>
+                    ) : (
+                        <div>
+                            <h1>Highscore: {highscore}</h1>
+                            <button onClick={() => setGameOver(false)}>New Game</button>
+                        </div>
+                    )
+                    }
+
+
                 </div>
             ) : null}
 
