@@ -18,11 +18,13 @@ function App() {
         }
     }, [data]);
 
-
-
     function askQuestion() {
         let randomNumber = Math.floor(Math.random() * questions.length);
         setQuestion(questions[randomNumber])
+    }
+
+    function checkAnswer(givenAnswer) {
+        givenAnswer === question.correctAnswer ? console.log("correct") : console.log("incorrect")
     }
 
     return (
@@ -31,7 +33,9 @@ function App() {
             {question ? (
                 <div>
                     <QuestionField question={question.question} />
-                    <AnswerField possibleAnswers={question.answers} />
+                    <AnswerField
+                        possibleAnswers={question.answers}
+                        checkAnswer={checkAnswer} />
                 </div>
             ) : null}
 
