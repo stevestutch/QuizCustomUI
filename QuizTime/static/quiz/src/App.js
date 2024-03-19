@@ -6,6 +6,7 @@ import questions from './Questions';
 
 function App() {
     const [data, setData] = useState(null);
+    const [question, setQuestion] = useState(null);
 
     useEffect(() => {
         invoke('getText', { example: 'my-invoke-variable' }).then(setData);
@@ -17,7 +18,7 @@ function App() {
         }
     }, [data]);
 
-    const [question, setQuestion] = useState([]);
+
 
     function askQuestion() {
         let randomNumber = Math.floor(Math.random() * questions.length);
@@ -27,8 +28,13 @@ function App() {
     return (
         <div>
             {data ? data : 'Loading...'}
-            <QuestionField question={question.question} />
-            <AnswerField />
+            {question ? (
+                <div>
+                    <QuestionField question={question.question} />
+                    <AnswerField possibleAnswers={question.answers} />
+                </div>
+            ) : null}
+
         </div>
     );
 }

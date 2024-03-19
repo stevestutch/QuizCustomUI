@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
-function AnswerField() {
+function AnswerField(props) {
+
+    const [elementColor, setElementColor] = useState();
+
+    function handleOnMouseOver(event) {
+        setElementColor(event.target.style.backgroundColor = "rgb(40, 40, 185)");
+    }
+
+    function handleMouseOut(event) {
+        setElementColor(event.target.style.backgroundColor = "rgb(71, 71, 137)")
+    }
+
     return (
         <div className="btn-container">
-            <div className="btn red-box" type="button">Field 1</div>
-            <div className="btn blue-box" type="button">Field 2</div>
-            <div className="btn green-box" type="button">Field 3</div>
-            <div className="btn yellow-box" type="button">Field 4</div>
+            {props.possibleAnswers.map((answer, index) => (
+                <div
+                    key={index}
+                    className="btn blue-box"
+                    type="button"
+                    onMouseOver={handleOnMouseOver}
+                    onMouseOut={handleMouseOut}
+                    style={{ backgroundColor: { elementColor } }}
+                >{answer}</div>
+            ))}
         </div>
     )
 }
