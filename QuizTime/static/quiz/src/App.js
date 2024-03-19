@@ -10,6 +10,7 @@ function App() {
     const [score, setScore] = useState(0);
     const [isGameOver, setGameOver] = useState(false);
     const [highscore, setHighscore] = useState(0);
+    const [hasGameStarted, setGameStarted] = useState(false);
 
     useEffect(() => {
         invoke('getText', { example: 'my-invoke-variable' }).then(setData);
@@ -20,6 +21,7 @@ function App() {
     }
 
     function askQuestion() {
+        setGameStarted(true);
         let randomNumber = Math.floor(Math.random() * questions.length);
         setQuestion(questions[randomNumber])
     }
@@ -32,7 +34,7 @@ function App() {
 
     return (
         <div>
-            <div type="button" onClick={askQuestion} className="btn-start">Start Game</div>
+            {!hasGameStarted && (<div type="button" onClick={askQuestion} className="btn-start">Start new Game</div>)}
             {question ? (
                 <div>
                     {!isGameOver ? (
@@ -47,13 +49,12 @@ function App() {
                         </div>
                     ) : (
                         <div>
-                            <h1>Highscore: {highscore}</h1>
+                            <h1>Game Over</h1>
+                            <h2>Highscore: {highscore}</h2>
                             <button onClick={() => setGameOver(false)}>New Game</button>
                         </div>
                     )
                     }
-
-
                 </div>
             ) : null}
 
