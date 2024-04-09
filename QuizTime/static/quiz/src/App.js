@@ -38,20 +38,24 @@ function App() {
             {question ? (
                 <div>
                     {!isGameOver ? (
-                        <div>
-                            <h1>Score: {score}</h1>
-                            <QuestionField question={question.question} />
-                            <AnswerField possibleAnswers={question.answers}
-                                currentQuestionAnswer={question.correctAnswer}
-                                askQuestion={askQuestion}
-                                countScoreUp={countScoreUp}
-                                gameOver={gameOver} />
+                        <div className='full-body'>
+                            <div className='main-container'>
+                                <div className='score-container'>Score: {score}</div>
+                                <QuestionField question={question.question} />
+                                <AnswerField possibleAnswers={question.answers}
+                                    currentQuestionAnswer={question.correctAnswer}
+                                    askQuestion={askQuestion}
+                                    countScoreUp={countScoreUp}
+                                    gameOver={gameOver} />
+                            </div>
                         </div>
                     ) : (
-                        <div>
-                            <h1>Game Over</h1>
-                            <h2>Highscore: {highscore}</h2>
-                            <button onClick={() => setGameOver(false)}>New Game</button>
+                        <div className='full-body'>
+                            <div className='main-container'>
+                                <h1>Game Over</h1>
+                                <h2>Highscore: {highscore}</h2>
+                                <button onClick={() => setGameOver(false)}>New Game</button>
+                            </div>
                         </div>
                     )
                     }

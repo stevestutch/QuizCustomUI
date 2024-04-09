@@ -1,35 +1,35 @@
 .btn {
-    margin: 25px;
+    margin: 5%;
     display: inline-block;
     height: 180px;
     width: 180px;
     border: 1px solid rgb(0, 0, 0);
-    border-radius: 20%;
-
+    border-radius: 5%;
     text-align: center;
     line-height: 180px;
     color: white;
 }
 
 .blue-box {
-    background-color: rgb(71, 71, 137);
+    background-color: rgb(87, 157, 255);
 }
 
 .btn-container {
-    border: 2px solid black;
-    margin: 25px;
-    padding: 25px;
-    height: 500px;
-    width: 500px;
+    margin-top: 10px;
+    height: 455px;
+    width: 455px;
 }
 
 .question-container {
-    border: 2px solid black;
-    margin-left: 25px;
-    padding: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     height: 100px;
-    width: 500px;
+    width: 455px;
     text-align: center;
+    font-size: x-large;
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 .btn-start {
@@ -39,4 +39,30 @@
     border-radius: 10%;
     text-align: center;
     margin: 20px;
+}
+
+body {
+    background-color: rgb(29, 33, 37);
+}
+
+.main-container {
+    margin-left: 30%;
+    margin-right: 29%;
+    border: 1px solid rgb(197, 207, 217);
+}
+
+.score-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 455px;
+    text-align: center;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.full-body {
+    background-color: rgb(197, 207, 217);
 }

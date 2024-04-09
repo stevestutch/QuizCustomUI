@@ -5,28 +5,28 @@ function AnswerField(props) {
     const [elementColor, setElementColor] = useState();
 
     function handleOnMouseOver(event) {
-        setElementColor(event.target.style.backgroundColor = "rgb(40, 40, 185)");
+        setElementColor(event.target.style.backgroundColor = "rgb(133, 184, 255)");
     }
 
     function handleMouseOut(event) {
-        setElementColor(event.target.style.backgroundColor = "rgb(71, 71, 137)")
+        setElementColor(event.target.style.backgroundColor = "rgb(87, 157, 255)")
     }
 
     function handleOnClick(event) {
         let selectedAnswer = event.target.textContent;
 
         if (selectedAnswer === props.currentQuestionAnswer) {
-            setElementColor(event.target.style.backgroundColor = "rgb(71, 71, 137)");
+            setElementColor(event.target.style.backgroundColor = "rgb(87, 157, 255)");
             props.countScoreUp();
             props.askQuestion();
         } else {
-            setElementColor(event.target.style.backgroundColor = "rgb(71, 71, 137)");
+            setElementColor(event.target.style.backgroundColor = "rgb(87, 157, 255)");
             props.gameOver();
         }
     }
 
     return (
-        <div className="btn-container">
+        <div className="btn-container game-panel">
             {props.possibleAnswers.map((answer, index) => (
                 <div
                     key={index}
