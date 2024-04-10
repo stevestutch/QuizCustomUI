@@ -22,9 +22,14 @@ function App() {
     }
 
     function askQuestion() {
+        if (questions.length < 1) {
+            gameOver();
+            return;
+        }
         setGameStarted(true);
         let randomNumber = Math.floor(Math.random() * questions.length);
-        setQuestion(questions[randomNumber])
+        setQuestion(questions[randomNumber]);
+        questions.splice(randomNumber, 1);
     }
 
     function gameOver() {
