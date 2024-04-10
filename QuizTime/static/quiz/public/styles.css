@@ -10,6 +10,18 @@
     color: white;
 }
 
+.btn-slim {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 180px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 2%;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+}
+
 .blue-box {
     background-color: rgb(87, 157, 255);
 }
@@ -49,6 +61,7 @@ body {
     margin-left: 30%;
     margin-right: 29%;
     border: 1px solid rgb(197, 207, 217);
+    height: 800px;
 }
 
 .score-container {
@@ -65,4 +78,14 @@ body {
 
 .full-body {
     background-color: rgb(197, 207, 217);
+}
+
+.plain-view {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 455px;
+    text-align: center;
+    height: 800px;
 }

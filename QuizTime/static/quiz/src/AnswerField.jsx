@@ -9,7 +9,7 @@ function AnswerField(props) {
     }
 
     function handleMouseOut(event) {
-        setElementColor(event.target.style.backgroundColor = "rgb(87, 157, 255)")
+        setElementColor(event.target.style.backgroundColor = "rgb(87, 157, 255)");
     }
 
     function handleOnClick(event) {
@@ -26,7 +26,7 @@ function AnswerField(props) {
     }
 
     return (
-        <div className="btn-container game-panel">
+        <div className="btn-container">
             {props.possibleAnswers.map((answer, index) => (
                 <div
                     key={index}

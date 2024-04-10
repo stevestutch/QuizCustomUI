@@ -11,9 +11,10 @@ function App() {
     const [isGameOver, setGameOver] = useState(false);
     const [highscore, setHighscore] = useState(0);
     const [hasGameStarted, setGameStarted] = useState(false);
+    const [elementColor, setElementColor] = useState();
 
     useEffect(() => {
-        invoke('getText', { example: 'my-invoke-variable' }).then(setData);
+        invoke().then(setData);
     }, []);
 
     function countScoreUp() {
@@ -32,9 +33,32 @@ function App() {
         setGameOver(true);
     }
 
+    function handleOnMouseOver(event) {
+        setElementColor(event.target.style.backgroundColor = "rgb(133, 184, 255)");
+    }
+
+    function handleMouseOut(event) {
+        setElementColor(event.target.style.backgroundColor = "rgb(87, 157, 255)");
+    }
+
     return (
         <div>
-            {!hasGameStarted && (<div type="button" onClick={askQuestion} className="btn-start">Start new Game</div>)}
+            {!hasGameStarted &&
+                (<div className='full-body'>
+                    <div className='main-container'>
+                        <div className='plain-view'>
+                            <h1>Welcome to QuizTime!</h1>
+                            <div
+                                type="button"
+                                onClick={askQuestion}
+                                onMouseOver={handleOnMouseOver}
+                                onMouseOut={handleMouseOut}
+                                style={{ backgroundColor: { elementColor } }}
+                                className="btn-slim blue-box">Start new Game
+                            </div>
+                        </div>
+                    </div>
+                </div>)}
             {question ? (
                 <div>
                     {!isGameOver ? (
@@ -52,9 +76,17 @@ function App() {
                     ) : (
                         <div className='full-body'>
                             <div className='main-container'>
-                                <h1>Game Over</h1>
-                                <h2>Highscore: {highscore}</h2>
-                                <button onClick={() => setGameOver(false)}>New Game</button>
+                                <div className='plain-view'>
+                                    <h1>Game Over</h1>
+                                    <h2>Highscore: {highscore}</h2>
+                                    <div
+                                        type="button"
+                                        className="btn-slim blue-box"
+                                        onMouseOver={handleOnMouseOver}
+                                        onMouseOut={handleMouseOut}
+                                        style={{ backgroundColor: { elementColor } }}
+                                        onClick={() => setGameOver(false)}>New Game</div>
+                                </div>
                             </div>
                         </div>
                     )
