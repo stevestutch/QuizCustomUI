@@ -54,6 +54,7 @@ function App() {
                         <div className='plain-view'>
                             <h1>Welcome to QuizTime!</h1>
                             <div
+                                id='startNewGameBtn'
                                 type="button"
                                 onClick={askQuestion}
                                 onMouseOver={handleOnMouseOver}

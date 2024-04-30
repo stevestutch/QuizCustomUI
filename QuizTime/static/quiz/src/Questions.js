@@ -110,11 +110,6 @@ const questions = [
         correctAnswer: "George Orwell"
     },
     {
-        question: "What is the speed of light in a vacuum?",
-        answers: ["299,792,458 meters per second", "186,282 miles per second", "300,000 kilometers per second", "100,000 miles per second"],
-        correctAnswer: "299,792,458 meters per second"
-    },
-    {
         question: "Which planet is closest to the sun?",
         answers: ["Venus", "Mars", "Earth", "Mercury"],
         correctAnswer: "Mercury"
